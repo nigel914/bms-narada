@@ -23,7 +23,7 @@ options:
   mqtt_ha_discovery_topic: "homeassistant"
   mqtt_base_topic: "bms_lifepower4"
   connection_type: "IP"
-  bms_ip: "10.103.20.211"
+  bms_ip: "10.103.20.11"
   bms_port: 8234
   bms_serial: "/dev/ttyUSB0"
   pack_ids: [2,3]
