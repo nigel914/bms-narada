@@ -1,5 +1,3 @@
-
-
 import paho.mqtt.client as mqtt
 import socket
 import time
@@ -103,7 +101,7 @@ def bms_connect(address, port):
         try:
             print("trying to connect " + address + ":" + str(port))
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(2)
+            s.settimeout(5)
             s.connect((address, port))
             print("BMS socket connected")
             return s, True
@@ -174,11 +172,11 @@ def ha_discovery():
         device['manufacturer'] = "BMS Pace"
         device['model'] = "AM-x"
         device['identifiers'] = "bmspace_" + bms_sn
-        device['name'] = "Generic Lithium"
+        device['name'] = "EG4 Lifepower4"
         device['sw_version'] = bms_version
         disc_payload['device'] = device
 
-        for p in range (1,packs+1):
+        for p in range (1,packs+2):
 
             for i in range(0,cells):
                 disc_payload['name'] = "Pack " + str(p) + " Cell " + str(i+1) + " Voltage"
@@ -654,7 +652,7 @@ def bms_getAnalogData(bms,batNumber):
     elif batNumber == 15:
         command += b'\x0F\x01\x00\x82'
     else:
-    	return(False,"Invalid PackID")
+    	   return(False,"Invalid PackID")
           
     success, inc_data = bms_request(bms,command=command)
     p = batNumber
@@ -673,10 +671,10 @@ def bms_getAnalogData(bms,batNumber):
         byte_index = 6
         
         for i in range(0,cells):
-           v_cell[i] = int.from_bytes(inc_data[byte_index:byte_index+2], "big") & 0x0fff
-           byte_index += 2
-           client.publish(config['mqtt_base_topic'] + "/pack_" + str(p) + "/v_cells/cell_" + str(i+1) ,str(v_cell[i]))
-           if debug_output > 1:
+            v_cell[i] = int.from_bytes(inc_data[byte_index:byte_index+2], "big") & 0x0fff
+            byte_index += 2
+            client.publish(config['mqtt_base_topic'] + "/pack_" + str(p) + "/v_cells/cell_" + str(i+1) ,str(v_cell[i]))
+            if debug_output > 1:
                print("Pack " + str(p) + ", V Cell" + str(i+1) + ": " + str(v_cell[i]) + " mV")
            
         v_cell_delta = v_cell.max() - v_cell.min()
@@ -706,11 +704,11 @@ def bms_getAnalogData(bms,batNumber):
         
         byte_index += 2
         for i in range(0,4):
-           temperature = (int.from_bytes(inc_data[byte_index:byte_index+2], "big") & 0xFF) - 50
-           client.publish(config['mqtt_base_topic'] + "/pack_" + str(p) + "/temps/temp_" + str(i+1) ,str(temperature))
-           if debug_output > 1:
-               print("Pack " + str(p) + ", Temp" + str(i+1) + ": " + str(temperature) + " C")
-           byte_index += 2
+            temperature = (int.from_bytes(inc_data[byte_index:byte_index+2], "big") & 0xFF) - 50
+            client.publish(config['mqtt_base_topic'] + "/pack_" + str(p) + "/temps/temp_" + str(i+1) ,str(temperature))
+            if debug_output > 1:
+                print("Pack " + str(p) + ", Temp" + str(i+1) + ": " + str(temperature) + " C")
+            byte_index += 2
            
         temperature = (int.from_bytes(inc_data[byte_index:byte_index+2], "big") & 0xFF) - 50
         byte_index += 2
@@ -1017,7 +1015,7 @@ while code_running == True:
             for id in pack_ids:
                 success, data = bms_getAnalogData(bms,batNumber=id)
                 if success != True:
-                     print("Error retrieving BMS analog data: " + data)
+                    print("Error retrieving BMS analog data: " + data)
                      
             time.sleep(scan_interval)
 
