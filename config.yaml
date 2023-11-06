@@ -12,22 +12,22 @@ arch:
   - i386
 
 uart: true
-usb: true
+usb: false
 
 options:
-  mqtt_host: "192.168.10.1"
+  mqtt_host: "10.103.53.7"
   mqtt_port: 1883
-  mqtt_user: "mqtt"
-  mqtt_password: "mqtt"
-  mqtt_ha_discovery: false
+  mqtt_user: "mqttuser"
+  mqtt_password: "mqttpass"
+  mqtt_ha_discovery: "false"
   mqtt_ha_discovery_topic: "homeassistant"
   mqtt_base_topic: "bms_lifepower4"
   connection_type: "IP"
-  bms_ip: "192.168.10.218"
-  bms_port: 8002
+  bms_ip: "10.103.20.211"
+  bms_port: 8234
   bms_serial: "/dev/ttyUSB0"
   pack_ids: [2,3]
-  scan_interval: 1
+  scan_interval: 5
   debug_output: 1
 schema:
   mqtt_host: str
