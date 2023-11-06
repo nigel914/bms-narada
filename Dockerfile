@@ -8,7 +8,6 @@ WORKDIR /${WORK_DIR}
 COPY requirements.txt .
 
 # install python libraries
-# RUN pip3 install numpy
 RUN pip3 install -r requirements.txt
 
 # Copy code
