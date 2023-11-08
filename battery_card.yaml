@@ -1,0 +1,102 @@
+
+
+title: EG4 Lifepower4 Pack 2
+type: vertical-stack
+cards:
+  - type: custom:stack-in-card
+    keep:
+      margin: false
+      box_shadow: false
+      background: false
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: markdown
+            content: >-
+              <center><b><font color=#41CD52 size=6>{{
+              states('sensor.bms_lifepower4_pack_2_v_pack') }} V</font></b><br>
+              Battery Power:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_power') }} W</font><br>
+              Battery Capacity:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_capacity') }} Ah</font><br>
+              State of Health:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_state_of_health') }} %</font>
+              <br> MOS Temp.:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_mos_temp') }} °C</font> <br>
+              Battery T1:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_pack_temp_1') }}
+              °C</font><br> Battery T3:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_pack_temp_3') }} °C</font>
+          - type: markdown
+            content: >-
+              <center><b><font color=#41CD52 size=6>{{
+              states('sensor.bms_lifepower4_pack_2_current') }} A</font></b><br>
+              Remain Battery:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_state_of_charge') }}
+              %</font><br> Remain Capacity:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_remain_capacity') }}
+              Ah</font><br> Cycle Count:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_cycles') }}</font><br>
+              Ambient Temp.:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_ambient_temp') }}
+              °C</font><br> Battery T2:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_pack_temp_2') }}
+              °C</font><br> Battery T4:&nbsp;&nbsp;<font color=#41CD52>{{
+              states('sensor.bms_lifepower4_pack_2_pack_temp_4') }} °C</font>
+  - type: custom:stack-in-card
+    keep:
+      margin: false
+      box_shadow: false
+      background: false
+    cards:
+      - type: grid
+        square: false
+        columns: 1
+        cards:
+          - type: markdown
+            content: <center><b>Cells
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: markdown
+            content: >-
+              <center>01.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_1_volts') }} V <br>
+              02.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_2_volts') }} V <br>
+              03.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_3_volts') }} V <br>
+              04.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_4_volts') }} V <br>
+              05.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_5_volts') }} V <br>
+              06.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_6_volts') }} V <br>
+              07.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_7_volts') }} V <br>
+              08.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_8_volts') }} V
+              <br></center>
+          - type: markdown
+            content: >-
+              <center>09.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_9_volts') }} V <br>
+              10.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_10_volts') }} V <br>
+              11.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_11_volts') }} V <br>
+              12.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_12_volts') }} V <br>
+              13.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_13_volts') }} V <br>
+              14.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_14_volts') }} V <br>
+              15.&nbsp;&nbsp;&nbsp;  {{
+              states('sensor.bms_lifepower4_pack_2_cell_15_volts') }} V <br>
+              16.&nbsp;&nbsp;&nbsp; {{
+              states('sensor.bms_lifepower4_pack_2_cell_16_volts') }} V
+              <br></center>
+
